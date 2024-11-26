@@ -1,7 +1,7 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
+#open the html file and read the code
 my_html = open("index.html", "r")
-
 code = str(my_html.read())
 
 HOST = "192.168.1.45"
@@ -13,7 +13,7 @@ class NeralHTTP(BaseHTTPRequestHandler):
 	    self.send_header("Content-Type", "text/html")
 	    self.end_headers()
 	    
-	    
+	    #this is where the html code is used
 	    self.wfile.write(bytes(code, "utf-8"))
 	    
 server = HTTPServer((HOST, PORT), NeralHTTP)
